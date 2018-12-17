@@ -8,7 +8,8 @@ import { TodoService } from '../todo/shared/todo.service';
   styleUrls: ['./my-dialog.component.css']
 })
 export class MyDialogComponent implements OnInit {
-  constructor(public thisDialogRef: MatDialogRef<MyDialogComponent>, @Inject(MAT_DIALOG_DATA ) public data: string,
+  edit = false;
+  constructor(public thisDialogRef: MatDialogRef<MyDialogComponent>, @Inject(MAT_DIALOG_DATA ) public data: any,
   public todoservice: TodoService) { }
 
   ngOnInit() {

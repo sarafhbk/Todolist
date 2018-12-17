@@ -25,7 +25,9 @@ closeResult: string;
     this.spinner.show();
     this.todoservice.gettodolist().snapshotChanges()
     .subscribe(item => {
-      this.spinner.hide();
+      if (item || item === null) {
+        this.spinner.hide();
+      }
     this.todoChecked = item.filter((value) => {
 return value.payload.val().isChecked === true;
       });

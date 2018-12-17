@@ -1,0 +1,29 @@
+<div *ngIf="data.title"> <h1 mat-dialog-title><i class="fa fa-pencil" aria-hidden="true"></i> Edit Task</h1>
+<div mat-dialog-content>
+  <input type="text" value="{{data.title}}" name="edit" #editInput>
+</div>
+<div class="actions" mat-dialog-actions>
+  <button class="updateBtn"  (click)="onUpdate(editInput.value, data.$key)">Update</button>
+  <button class="cancelBtn" (click)="onCloseCancel()">Cancel</button>
+</div>
+</div>
+<div *ngIf="data == 'deleteAll'">
+  <h1 mat-dialog-title><i class="fa fa-trash-o fa-lg"></i> Delete All Completed Tasks</h1>
+  <div mat-dialog-content>
+    Are You Sure?
+  </div>
+  <div class="actions" mat-dialog-actions>
+    <button class="deleteBtn"  (click)="delete()">Delete</button>
+    <button class="cancelBtn" (click)="onCloseCancel()">Cancel</button>
+  </div>
+</div>
+<div *ngIf="data.message == 'delete'">
+  <h1 mat-dialog-title><i class="fa fa-trash-o fa-lg"></i> Delete This Task</h1>
+  <div mat-dialog-content>
+    Are You Sure?
+  </div>
+  <div class="actions" mat-dialog-actions>
+    <button class="deleteBtn"  (click)="deleteSingle(data.key)">Delete</button>
+    <button class="cancelBtn" (click)="onCloseCancel()">Cancel</button>
+  </div>
+</div>

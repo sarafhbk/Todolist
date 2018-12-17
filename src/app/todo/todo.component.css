@@ -1,0 +1,306 @@
+.checkedText{
+  
+    color: grey;
+       text-decoration: line-through; 
+}
+.nonCheckedText{
+    color: black;
+    text-decoration: none;
+}
+.fa{
+    cursor: pointer;
+}
+.fa-check-circle-o{
+    color: rgb(0, 221, 0);
+}
+main{
+
+    display: grid;
+    justify-items: center;
+    align-content: space-around;
+}
+.mobileCaptionContainer{
+    display: none;
+}
+.mainGrid{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 23% 1fr;
+}
+aside{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    align-content: space-around;
+}
+aside div{
+    position: relative;
+
+height: 80px;
+width: 80px;
+border-radius: 10px;
+
+}
+
+aside .activeTasks{
+    background: #A253FF;
+    box-shadow: 0px 10px 30px rgba(162,83,255,0.4);
+}
+aside .completedTasks{
+    background: rgb(71, 209, 133);
+    box-shadow: 0px 10px 30px rgba(71, 209, 133,0.4);
+}
+aside .totalTasks{
+    background: rgb(255, 140, 46);
+    box-shadow: 0px 10px 30px rgba(255, 140, 46,0.4);
+}
+aside span{
+    color:white;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transition: 1s;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+ul li{
+    list-style: none;
+    padding: 2% 0;
+    position: relative;
+    display: flex;
+   
+}
+.addButton{
+    all: unset;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgb(89, 0, 255);
+    text-align: center;
+    color: white;
+    box-shadow: 0px 8px 15px rgba(89, 0, 255,0.4);
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: lighter;
+}
+
+.addButton:active{
+    box-shadow: 0px 5px 30px rgba(162,83,255,0.4);  
+}
+.deleteCompleted:active{
+    box-shadow: 0px 2px 20px rgba(255, 34, 34, 0.4);
+}
+.taskList{
+    width: 90%;
+    height: 400px;
+    overflow-y: auto;
+    box-shadow: 2px 2px 20px rgba(128, 128, 128, 0.274);
+    border-radius: 10px;
+}
+.fa-ellipsis-h{
+    color: rgba(0, 0, 0, 0.432);
+}
+.taskList::-webkit-scrollbar {
+    width: 5px;
+}
+
+.taskList::-webkit-scrollbar-thumb {
+  background-color: rgba(162,83,255,0.4);
+  outline: 1px solid slategrey;
+}
+.taskTitle{
+padding-left:15px;
+font-size: 14px;
+}
+.taskTitleContainer{
+    width: 80%;
+}
+.flexContainer{
+    padding: 0;
+    width: 90%;
+}
+.actionFlexContainer{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 4%;
+}
+.flexContainer input{
+    padding-left: 20px;
+    background: whitesmoke;
+    font-size: 14px;
+    outline: 0;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+}
+.flexContainer input::placeholder{
+    font-size: 14px;
+}
+.actionFlexContainer span{
+    padding: 0 10px;
+    cursor: pointer;
+}
+.actionFlexContainer .delete{
+    color: rgb(255, 83, 83);
+}
+
+.deleteCompleted{
+    all: unset;
+    font-size: 12px;
+    background: rgb(255, 83, 83);
+    text-align: center;
+    width: 130px;
+    color: white;
+    padding: 8% 2%;
+    border-radius: 5px;
+box-shadow: 0px 5px 15px rgba(255, 34, 34, 0.4);
+cursor: pointer;
+}
+
+@media (min-width: 780px) and (max-width: 900px) {
+    aside{
+        font-size: 12px;
+    }
+    .taskTitleContainer{
+        font-size: 14px;
+    }
+    .taskList{
+        width: 90%;
+    }
+    aside div{
+        position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    }
+}
+@media (max-width: 679px) {
+    ul{
+        margin: 0;
+        padding: 10px;
+    }
+    .fa{
+        font-size: 18px;
+    }
+    .mobileCaptionContainer{
+        position: relative;
+        display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+top: 10px;
+    }
+    .mobileCaption{
+        text-align: center;
+        font-size: 10px;
+        color: black;
+        padding: 0;
+        margin: 0;
+    }
+    .mainGrid{
+        position: absolute;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .taskTitleContainer{
+        font-size: 12px;
+        
+    }
+    .actionFlexContainer{
+        right: 2px;
+    }
+    .actionFlexContainer span{
+        padding: 0 5px;
+    }
+    .taskList{
+        padding: 0 5%;
+        width: 100%;
+        height: 300px;
+        overflow-y: auto;
+        box-shadow: none;
+        border-radius: 10px;
+    }
+    aside{
+        font-size: 10px;
+        position: relative;
+        top: 12px;
+        transform: translateY(0);
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-content: space-around;
+    }
+    aside .desktopCaption{
+        display: none;
+    }
+    aside span{
+        color:white;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+    }
+    aside div{
+        position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    }
+    .flexContainer{
+        display: flex;
+    }
+.taskTitle{
+
+padding-left:15px;
+position: relative;
+top: 3px;
+}
+    .flexContainer input{
+        padding-left: 20px;
+        background: whitesmoke;
+        font-size: 14px;
+        outline: 0;
+        border: none;
+        height: 30px;
+        border-radius: 5px;
+    }
+    ul{
+        padding: 0 8%;
+    }
+
+    ul li{
+        list-style: none;
+        padding: 12px 0;
+        position: relative;
+        display: flex;
+       
+    }
+}
+
+@media (max-width: 390px) {
+    .flexContainer{
+        width: 90%;
+    }
+    .taskTitleContainer{
+        width: 70%;
+    }
+    .flexContainer input{
+        width: 70%;
+
+    }
+
+}

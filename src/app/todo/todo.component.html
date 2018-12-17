@@ -1,0 +1,63 @@
+
+<div class="mainGrid">
+  <aside>
+      <div class="activeTasks" #right><span>{{todolistarrayLength-todoCheckedCount}}</span></div>
+  <p class="desktopCaption">Active Tasks</p>
+  <div class="completedTasks"><span>{{todoCheckedCount}}</span></div>
+ <p class="desktopCaption">Completed Tasks</p> 
+    <div class="totalTasks"><span>{{todolistarrayLength}}</span>
+    </div>
+  <p class="desktopCaption">Total Tasks</p>  
+  </aside>
+  <span class="mobileCaptionContainer"><p class="mobileCaption">Active Tasks</p>
+    <p class="mobileCaption">Completed Tasks</p>
+    <p class="mobileCaption">Total Tasks</p></span>
+  <main>
+    <div class="flexContainer">
+      <input type="text" placeholder="Add Task.." #itemTitle>
+      <button class="addButton" (click)="onAdd(itemTitle)">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+    <div class="taskList">
+        <ngx-spinner
+        bdColor = "rgba(255,255,255,0.71)"
+        size = "default"
+        color = "#000000"
+        type = "ball-spin-clockwise"
+        ></ngx-spinner>
+      <ul>
+        <li *ngFor="let item of todolistarray">
+         <div><span [class.text-success]="item.isChecked" (click)="alterCheck(item.$key,item.isChecked)">
+            <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+          </span ></div> 
+        <div class="taskTitleContainer"><span [ngClass] = "item.isChecked?'checkedText':'nonCheckedText'" class="taskTitle">{{item.title | titlecase}} </span></div> 
+         <!-- <span class="date">{{item.date | date:'mediumDate'}}</span> -->
+         <div class="actionFlexContainer">
+          <!-- 
+             -->
+            <span [matMenuTriggerFor]="menu"><i class="fa fa-ellipsis-h"></i></span>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngIf="!item.isChecked" (click)="openDialog(item)">
+                <span class="edit">
+                  <i class="fa fa-edit fa-lg"></i> Edit
+                </span>
+              </button>
+              <button mat-menu-item (click)="onDelete(item.$key)">
+                <span class="delete">
+                  <i class="fa fa-trash-o fa-lg"></i> Delete
+                </span>
+              </button>
+            </mat-menu>
+            
+         </div>
+        </li>
+      </ul>
+    </div>
+
+    <span class="buttonContainer">  <button class="deleteCompleted" (click)="deleteAllChecked()">Delete Completed</button></span>
+    
+  </main>
+</div>
+
+

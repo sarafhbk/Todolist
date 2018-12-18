@@ -28,6 +28,8 @@ openSnackBar(message: string) {
   this.zone.run(() => {
   this.snackBar.open(message, '', {
     duration: 2000,
+    verticalPosition: 'top',
+    horizontalPosition: 'end'
   });
 });
 }
